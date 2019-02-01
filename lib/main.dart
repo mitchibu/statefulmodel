@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => FutureBuilder<PackageInfo>(
     future: PackageInfo.fromPlatform(),
     builder: (context, snapshot) {
-      if(snapshot.connectionState != ConnectionState.done) return null;
+      if(snapshot.connectionState != ConnectionState.done) return Container();
       return StatefulModel<AppModel>.builder(
         creator: (context, model) => AppModel(snapshot.data),
         builder: _build,

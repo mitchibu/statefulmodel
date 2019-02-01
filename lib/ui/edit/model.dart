@@ -1,20 +1,22 @@
 import 'dart:async';
 
-import 'package:flutter/widgets.dart';
 import 'package:statefulmodel/statefulmodel.dart';
 
 class EditModel extends Model {
-  StreamController<int> _counterController = StreamController<int>();
-  Stream get counterStream => _counterController.stream;
+  final _obscureTextController = StreamController<bool>();
+  Stream get obscureTextStream => _obscureTextController.stream;
+
+  bool _obscureText = true;
+  bool get obscureText => _obscureText;
+
+  void toggleObscureText() {
+    _obscureTextController.sink.add(_obscureText = !_obscureText);
+  }
 
   String _password = '';
   String get password => _password;
 
-  void save(FormState passwordState) {
-    print('1');
-    if(passwordState.validate()) {
-      passwordState.save();
-    }
+  void save() {
     print('password: $_password');
   }
 
@@ -30,6 +32,6 @@ class EditModel extends Model {
 
   @override
   void dispose() {
-    _counterController.close();
+    _obscureTextController.close();
   }
 }
