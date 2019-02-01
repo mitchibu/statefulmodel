@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:statefulmodel/statefulmodel.dart';
 
+import '../edit/main.dart';
+import '../widget/test.dart';
 import 'model.dart';
 
 class HomePage extends StatelessWidget {
@@ -43,7 +45,10 @@ class HomePage extends StatelessWidget {
         ),
         ListTile(
           title: Text('item1'),
-          onTap: () {Navigator.pop(context);},
+          onTap: () {
+            Navigator.of(context).pop();
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => EditPage()));
+          },
         ),
         ListTile(
           title: Text('item2'),
@@ -63,6 +68,7 @@ class HomePage extends StatelessWidget {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
+        PasswordFormField(),
         Text(
           'You have pushed the button this many times:',
         ),
