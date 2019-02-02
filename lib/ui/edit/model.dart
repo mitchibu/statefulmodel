@@ -13,21 +13,76 @@ class EditModel extends Model {
     _obscureTextController.sink.add(_obscureText = !_obscureText);
   }
 
+  String _title = '';
+  String get title => _title;
+
+  String validateTitle(String text) {
+    print('title2');
+    if(text.isEmpty) return 'Title must not be empty.';
+    return null;
+  }
+
+  void saveTitle(String text) {
+    print('title3');
+    _title = text;
+  }
+
+  String _category = '';
+  String get category => _category;
+
+  String validateCategory(String text) {
+    print('category2');
+    return null;
+  }
+
+  void saveCategory(String text) {
+    print('category3');
+    _title = text;
+  }
+
+  String _account = '';
+  String get account => _account;
+
+  String validateAccount(String text) {
+    print('account2');
+    if(text.isEmpty) return 'Account must not be empty.';
+    return null;
+  }
+
+  void saveAccount(String text) {
+    print('account3');
+    _account = text;
+  }
+
   String _password = '';
   String get password => _password;
 
-  void save() {
-    print('password: $_password');
-  }
-
   String validatePassword(String text) {
-    print('2');
+    print('password2');
     return null;
   }
 
   void savePassword(String text) {
-    print('3');
+    print('password3');
     _password = text;
+  }
+
+  String _comment = '';
+  String get comment => _comment;
+
+  String validateComment(String text) {
+    print('comment2');
+    return null;
+  }
+
+  void saveComment(String text) {
+    print('comment3');
+    _account = text;
+  }
+
+  void save() {
+    print('title: $_title');
+    print('password: $_password');
   }
 
   @override
